@@ -40,7 +40,7 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>KKTC Sözlük</Text>
+          <Text style={styles.headerTitle}>Nedir Be O</Text>
           <Text style={styles.headerSubtitle}>
             Kıbrıs Türk dilini keşfedin ve koruyun
           </Text>
