@@ -1,0 +1,83 @@
+
+import { Word, User, Comment } from './types';
+
+export const MOCK_WORDS: Word[] = [
+  {
+    id: '1',
+    term: 'Gabbar',
+    pronunciation: '/ɡab·bar/',
+    dialect: 'Cypriot Dialect',
+    turkishEquivalent: 'Kapari / Gebre Otu',
+    definition: 'Güneşli bölgelerde yetişen, tomurcukları turşu yapılan çalımsı bir bitki.',
+    exampleSentence: 'Annem her bahar dağa çıkar, gabbar toplardı.',
+    exampleTranslation: 'My mother used to go up the mountain every spring to pick capers.',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBdghWO9Y7W4FpoQ42Eab-A_Px9bqci9GmpVsWriOqo-2BzXEi3x98Lr8ifgGmDo1CzbaL1HeFtIhEfv-iYuWIXQsFZC0_TdRvfXV2_HmIppjFfB2lMtHXXd5CDJb6OSHXFTTbBLOS8znJUgyusbzIcxJsY8RmKRAcCs-Uv63mrHY7eTSDkshB4rDT_srklM3VHOi7UKhUFzxPPNB6Z1XZ7oFZfR0P03Ke9uBhJCVbfOTQhyHG8SgIwWjsroWA-gh_0zIwGqnrFL2yn',
+    likes: 1200,
+    commentsCount: 12,
+    author: 'ayse_kibrisli',
+    createdAt: '2 saat önce'
+  },
+  {
+    id: '2',
+    term: 'Hellim',
+    pronunciation: '/hel·lim/',
+    dialect: 'Cypriot Heritage',
+    turkishEquivalent: 'Kıbrıs Peyniri',
+    definition: 'Kıbrıs kökenli, yarı sert, tuzlu ve genellikle ızgara yapılarak yenen peynir türü.',
+    exampleSentence: 'Sabah kahvaltısında taze hellim ızgara yaptık.',
+    exampleTranslation: 'We grilled fresh halloumi for breakfast.',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA3B4u9J9CWQUIWIE8KEhDOQe56krXvq9MMPvrCL0ZwBO-dz1Iyx9nHfTmTJWyYdwOEjlmHbju1581IUvZnhH_m_Srh6mqS8e-t-vMLgC1Xh7N4SPILWEH5OhBJ4pmVJOfE5W4gLimExdtC_mjLUOz4ReYPlfOZ3_xssa1V1AGlHcLKjpDUHU5KcfTt9aDvOhmMfz_Vh8OTBAw-RaJ85TNe71V0aymBRuacXdQkRjrW71vhXoXxJevfowDd6EeTnHaQjN4RQNHrqxt9',
+    likes: 3400,
+    commentsCount: 89,
+    author: 'gurme_kibris',
+    createdAt: '5 saat önce'
+  },
+  {
+    id: '3',
+    term: 'Gancelli',
+    pronunciation: '/gan·cel·li/',
+    dialect: 'Cypriot Dialect',
+    turkishEquivalent: 'Demir Kapı',
+    definition: 'Genellikle bahçe veya tarla girişlerinde bulunan demir parmaklıklı kapı.',
+    exampleSentence: 'Gancelli paslanmış, bir yağlamak lazım.',
+    exampleTranslation: 'The garden gate is rusted, it needs some oiling.',
+    imageUrl: 'https://picsum.photos/seed/gate/800/400',
+    likes: 850,
+    commentsCount: 24,
+    author: 'lefkosali_genç',
+    createdAt: '1 gün önce'
+  }
+];
+
+export const MOCK_USER: User = {
+  id: 'user1',
+  name: 'Ayşe Yılmaz',
+  username: 'ayseyilmaz_kktc',
+  bio: 'Kıbrıs ağzı ve kültürü meraklısı. Yasemin kokulu kelimeler peşinde. 🌸',
+  location: 'Gazimağusa, KKTC',
+  avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDbS1Rh8ZGR-8LknOXjyt-v5LhoKj__cNBQ5NPnLhWBMvNMNfX32Jin2GUDPBg1mMLCtWO9GD3FkFnKlwc_RjSFwKBx5XAiIImqa2HTDD3vfptS3DFmmT8wSgrKyOm_GdrI-YAnE_u82xdr3eFDCRtyP73-KGnOHytvaOCfZE-1vKdROYxhWupFzzwth8uOqAjiSEzsh2ZtBF6cfo1oHDUCIcmIfCwq4TR8vRJ3YiWed3Lb4I1Kuqjf-QHEH21oIvXDvRtKNxrl6vZG',
+  stats: {
+    wordsCount: 124,
+    votesCount: '3.5k',
+    followersCount: 892
+  }
+};
+
+export const MOCK_COMMENTS: Comment[] = [
+  {
+    id: 'c1',
+    authorName: 'Ayşe Kıbrıslı',
+    authorAvatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-WveoRZ0dYGoLl0Yp66XUZkramv9ZXwhtXItgH_BzbpfhfjYs-kOxJ4iUSK0EOfuQprtIzlRiEbm22fCzeO93oXMAGpopl3POzb8HpFsZ02U9eK-8v90aOFasMZ8ew5YVhsHdxrNdORYansefXztzhj26qg32qG6yHHKCd5SIXVCxK1Zx-xdO412TdUTjbJYT70QuLp5iF9G3gXnC0HtXTAU3HY1pe_zQvWpWMCU1_fw3jwjHz9CxF_nMD2Ier10MS4_tOw7tnBH2',
+    content: 'My grandmother makes the best pickled gabbar! The trick is to soak them in water for a week to remove the bitterness before pickling. 🌿',
+    likes: 24,
+    timeAgo: '2h ago'
+  },
+  {
+    id: 'c2',
+    authorName: 'Mehmet Can',
+    authorAvatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCuiF3NqSWIrxXKUBaYhgyHFolRD0rWwMljTVzefrWOerLt1sFgo2E67c3py-Kk7rsUDNQOsafBwRyBglSSqbs22X5phnpSrKZT4CHRS6neCLcim0FDNE4WpJImFHefdGQKExqFoK-vMIHWgPLiQOnuLkuHSlajAKlR78Nq3TzJ_Z6J-ROKGTPwRU06OGeC06rjSv1ENGMSYGzC9dHzuovWvMOsWj1cjQuCe2Qur_uL3-KAzLqNi_wlTkbPNChL3uKIuTC8HIhX9yNM',
+    content: "Is this also used in salads or just as a pickle? I've seen it growing near Kyrenia castle.",
+    likes: 8,
+    timeAgo: '5h ago'
+  }
+];

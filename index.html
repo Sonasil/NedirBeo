@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KKTC Sözlük</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f47b25",
+              "primary-dark": "#d96615",
+              "secondary": {
+                DEFAULT: "#9c6c49",
+                700: "#7a5439"
+              },
+              "background-light": "#fcfaf8",
+              "background-dark": "#1a120b",
+              "surface-light": "#ffffff",
+              "surface-dark": "#2d1f18",
+              "text-main": "#1c130d",
+              "text-secondary": "#9c6c49",
+              "text-muted": "#8d847d",
+            },
+            fontFamily: {
+              "sans": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "xl": "1rem",
+              "2xl": "1.5rem",
+              "3xl": "2rem"
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Tailwind Animate Substitutes */
+      .animate-in {
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+      }
+      .slide-in-from-bottom {
+        animation-name: slide-in-bottom;
+      }
+      @keyframes slide-in-bottom {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+      }
+      .fade-in {
+        animation-name: fade-in;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 transition-colors duration-200">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

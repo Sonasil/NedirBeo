@@ -1,0 +1,8 @@
+
+{
+  "name": "KKTC Sözlük",
+  "description": "Kıbrıs ağzı, kültürü ve yerel değerlerini keşfetmek için tasarlanmış topluluk tabanlı bir dijital sözlük ve sosyal platform.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
