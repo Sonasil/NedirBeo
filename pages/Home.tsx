@@ -53,7 +53,7 @@ const Home: React.FC = () => {
 
           {/* Main Content Area */}
           <div className="flex-1">
-            {/* Search Bar - Different on Desktop */}
+            {/* Search Bar */}
             <div className="px-6 py-6 lg:px-0 lg:pt-0 lg:pb-10">
               <div className="relative max-w-2xl">
                 <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary text-2xl">search</span>
@@ -67,12 +67,12 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Featured Word - Desktop Hero Layout */}
+            {/* Featured Word - Optimized for Mobile Fit */}
             {!search && (
               <div className="px-6 pb-8 lg:px-0">
                 <div 
                   onClick={() => navigate(`/word/${featuredWord.id}`)}
-                  className="group relative h-[350px] lg:h-[450px] overflow-hidden rounded-[3rem] bg-stone-900 cursor-pointer shadow-2xl border border-black/5"
+                  className="group relative h-[380px] lg:h-[450px] overflow-hidden rounded-[2.5rem] lg:rounded-[3rem] bg-stone-900 cursor-pointer shadow-2xl border border-black/5"
                 >
                   <img 
                     src={featuredWord.imageUrl} 
@@ -81,20 +81,20 @@ const Home: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                   
-                  <div className="absolute inset-0 p-10 lg:p-16 flex flex-col justify-end">
-                    <div className="flex items-end justify-between gap-12">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-4">
-                          <span className="px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-[0.3em] shadow-xl shadow-primary/20">GÜNÜN KELİMESİ</span>
-                          <span className="text-white/40 text-[10px] font-black uppercase tracking-widest">• 24 ARALIK 2024</span>
+                  <div className="absolute inset-0 p-6 lg:p-16 flex flex-col justify-end">
+                    <div className="flex items-end justify-between gap-4 lg:gap-12">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-3 lg:mb-4">
+                          <span className="px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-primary text-white text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-[0.3em] shadow-xl shadow-primary/20">GÜNÜN KELİMESİ</span>
+                          <span className="text-white/40 text-[9px] lg:text-[10px] font-black uppercase tracking-widest">• 24 ARALIK</span>
                         </div>
-                        <h2 className="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-4">{featuredWord.term}</h2>
-                        <p className="text-white/90 text-lg lg:text-xl font-medium italic line-clamp-2 max-w-3xl leading-relaxed">
+                        <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tighter mb-2 lg:mb-4 truncate">{featuredWord.term}</h2>
+                        <p className="text-white/90 text-sm lg:text-xl font-medium italic line-clamp-2 lg:line-clamp-3 max-w-3xl leading-relaxed">
                           "{featuredWord.definition}"
                         </p>
                       </div>
-                      <button className="size-20 rounded-full bg-white text-primary shadow-2xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all">
-                        <span className="material-symbols-outlined text-4xl font-black">arrow_forward</span>
+                      <button className="size-14 lg:size-20 rounded-full bg-white text-primary shadow-2xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span className="material-symbols-outlined text-2xl lg:text-4xl font-black">arrow_forward</span>
                       </button>
                     </div>
                   </div>
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Feed List - Multi-column on Desktop */}
+            {/* Feed List */}
             <div className="px-6 lg:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {filteredWords.map((word) => (
                 <article 
@@ -166,7 +166,7 @@ const Home: React.FC = () => {
               ))}
             </div>
 
-            {/* Load More Button - Desktop Centered */}
+            {/* Load More Button */}
             <div className="mt-16 flex justify-center">
               <button className="h-14 px-12 rounded-2xl bg-white dark:bg-surface-dark border-2 border-primary/20 text-primary font-black text-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-white hover:border-primary transition-all shadow-xl shadow-primary/5 active:scale-95">
                 DAHA FAZLA KEŞFET

@@ -165,7 +165,7 @@ const App: React.FC = () => {
         {/* Full screen Add Word View Overlay */}
         {isAddViewOpen && (
           <div className="fixed inset-0 z-[110] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="w-full max-w-2xl bg-background-light dark:bg-background-dark h-[90vh] md:h-auto md:max-h-[80vh] rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-black/5">
+            <div className="w-full max-w-2xl bg-background-light dark:bg-background-dark h-[90vh] md:h-[80vh] rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-black/5">
               <AddWord 
                 onBack={() => setIsAddViewOpen(false)} 
                 onSave={() => {
