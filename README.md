@@ -14,7 +14,7 @@
 
 *"Söylemesi kolay, yazması zor - ama biz yazdık!"* 🇨🇾
 
-[Keşfet](#-özellikler) • [Kurulum](#-kurulum) • [Katkıda Bulun](#-katkıda-bulunma) • [Hakkında](#-proje-hakkında)
+[Keşfet](#-özellikler) • [Teknoloji](#-teknoloji-yığını) • [Katkıda Bulun](#-katkıda-bulunma) • [Hakkında](#-proje-hakkında)
 
 </div>
 
@@ -68,88 +68,8 @@ Kıbrıs Türk ağzı, yüzyıllardır aktarılan zengin bir kültürel mirastı
 
 ---
 
-## 🚀 Kurulum
 
-### Ön Gereksinimler
 
-Başlamadan önce sisteminizde şunların kurulu olduğundan emin olun:
-
-- **Node.js** (v18.0.0 veya üzeri) - [İndir](https://nodejs.org/)
-- **npm** (v9.0.0 veya üzeri) veya **yarn**
-- Modern bir web tarayıcısı (Chrome, Firefox, Safari, Edge)
-
-### 📥 Yerel Kurulum
-
-Projeyi yerel ortamınızda çalıştırmak için şu adımları izleyin:
-
-#### 1️⃣ Depoyu Klonlayın
-
-```bash
-git clone https://github.com/Sonasil/NedirBeo.git
-cd NedirBeo
-```
-
-#### 2️⃣ Bağımlılıkları Yükleyin
-
-```bash
-npm install
-```
-
-veya Yarn kullanıyorsanız:
-
-```bash
-yarn install
-```
-
-#### 3️⃣ Ortam Değişkenlerini Ayarlayın
-
-Projenin kök dizininde `.env.local` dosyası oluşturun:
-
-```bash
-# .env.local dosyasını oluşturun
-cp .env.local.example .env.local
-```
-
-`.env.local` dosyasını düzenleyin ve gerekli API anahtarlarını ekleyin:
-
-```env
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-> 💡 **Not**: Google Gemini API anahtarı almak için [Google AI Studio](https://makersuite.google.com/app/apikey) sayfasını ziyaret edin.
-
-#### 4️⃣ Geliştirme Sunucusunu Başlatın
-
-```bash
-npm run dev
-```
-
-Uygulama varsayılan olarak [http://localhost:5173](http://localhost:5173) adresinde çalışacaktır! 🎉
-
-#### 5️⃣ Tarayıcınızda Açın
-
-Tarayıcınızı açın ve şu adrese gidin:
-```
-http://localhost:5173
-```
-
----
-
-## 🏗️ Production Build
-
-Projeyi production için derlemek üzere:
-
-```bash
-npm run build
-```
-
-Build sonrası önizleme:
-
-```bash
-npm run preview
-```
-
----
 
 ## 🛠️ Teknoloji Yığını
 
@@ -177,66 +97,7 @@ npm run preview
 
 ---
 
-## 📱 Ekran Görüntüleri
 
-> 🚧 Ekran görüntüleri yakında eklenecek!
-
----
-
-## 📂 Proje Yapısı
-
-```
-NedirBeo/
-├── 📁 pages/              # Uygulama sayfaları
-│   ├── Home.tsx          # Ana sayfa - Günün kelimesi
-│   ├── Explore.tsx       # Keşfet sayfası
-│   ├── WordDetail.tsx    # Kelime detay ekranı
-│   ├── Profile.tsx       # Kullanıcı profili
-│   ├── Leaderboard.tsx   # Liderlik tablosu
-│   ├── AddWord.tsx       # Kelime ekleme formu
-│   └── Settings.tsx      # Ayarlar
-├── 📁 services/          # API servisleri
-├── App.tsx               # Ana uygulama bileşeni
-├── constants.tsx         # Sabitler ve design tokens
-├── types.ts              # TypeScript tip tanımları
-├── index.tsx             # Uygulama giriş noktası
-├── index.html            # HTML template
-├── vite.config.ts        # Vite yapılandırması
-├── tsconfig.json         # TypeScript yapılandırması
-└── package.json          # Proje bağımlılıkları
-```
-
----
-
-## 🤝 Katkıda Bulunma
-
-NedirBeo açık kaynaklı bir projedir ve katkılarınızı memnuniyetle karşılıyoruz! 💙
-
-### Nasıl Katkıda Bulunabilirsiniz?
-
-1. **🍴 Fork edin** - Projeyi kendi hesabınıza fork edin
-2. **🌿 Branch oluşturun** - `git checkout -b feature/harika-ozellik`
-3. **💻 Kodlayın** - Değişikliklerinizi yapın
-4. **✅ Test edin** - Kodunuzun çalıştığından emin olun
-5. **📝 Commit edin** - `git commit -m 'Harika özellik eklendi'`
-6. **🚀 Push edin** - `git push origin feature/harika-ozellik`
-7. **🎉 Pull Request açın** - Değişikliklerinizi gönderin!
-
-### Katkı Kuralları
-
-- Kod standartlarına uyun
-- Açıklayıcı commit mesajları yazın
-- Büyük değişiklikler için önce issue açın
-- Her değişiklik için test yazın
-- Dokümantasyonu güncel tutun
-
----
-
-## 📜 Lisans
-
-Bu proje **MIT Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
-
----
 
 ## 👨‍💻 Geliştirici
 
@@ -248,16 +109,6 @@ Sorularınız mı var? [Issue açın](https://github.com/Sonasil/NedirBeo/issues
 
 </div>
 
----
-
-## 🙏 Teşekkürler
-
-- Kıbrıs Türk kültürünü yaşatan herkese
-- Açık kaynak topluluğuna
-- Google Gemini AI ekibine
-- Bu projeye katkıda bulunan herkese
-
----
 
 <div align="center">
 
