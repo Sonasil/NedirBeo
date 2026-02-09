@@ -36,10 +36,30 @@ const Profile: React.FC = () => {
                   <span className="material-symbols-outlined text-2xl font-black">edit</span>
                 </button>
               </div>
-              <h1 className="text-4xl font-black tracking-tighter mb-2">{MOCK_USER.name}</h1>
-              <p className="text-lg font-bold text-text-secondary mb-6">@{MOCK_USER.username}</p>
-              <p className="text-lg leading-relaxed opacity-90 italic mb-8">"{MOCK_USER.bio}"</p>
-              <button onClick={() => navigate('/settings')} className="w-full h-14 bg-stone-100 dark:bg-white/5 text-stone-600 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3">
+              <h1 className="text-xl xl:text-2xl 2xl:text-4xl font-black tracking-tighter mb-1 xl:mb-1.5 2xl:mb-2">{MOCK_USER.name}</h1>
+              <p className="text-xs xl:text-sm 2xl:text-lg font-bold text-text-secondary mb-2 xl:mb-3 2xl:mb-6">@{MOCK_USER.username}</p>
+              <p className="text-xs xl:text-sm 2xl:text-lg leading-relaxed opacity-90 italic mb-3 xl:mb-4 2xl:mb-8 line-clamp-2 2xl:line-clamp-none">"{MOCK_USER.bio}"</p>
+
+              {/* Stats Grid - Compact */}
+              <div className="grid grid-cols-3 gap-1.5 mb-3 xl:mb-4 2xl:mb-6">
+                <div className="bg-background-light dark:bg-background-dark rounded-lg p-2 xl:p-2.5 2xl:p-3 text-center">
+                  <span className="material-symbols-outlined text-primary text-sm xl:text-base 2xl:text-xl block mb-0.5">library_books</span>
+                  <p className="text-base xl:text-lg 2xl:text-2xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
+                  <p className="text-[7px] xl:text-[8px] 2xl:text-[9px] font-bold text-text-secondary uppercase tracking-wider">Sözlük</p>
+                </div>
+                <div className="bg-background-light dark:bg-background-dark rounded-lg p-2 xl:p-2.5 2xl:p-3 text-center">
+                  <span className="material-symbols-outlined text-primary text-sm xl:text-base 2xl:text-xl block mb-0.5">thumb_up</span>
+                  <p className="text-base xl:text-lg 2xl:text-2xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
+                  <p className="text-[7px] xl:text-[8px] 2xl:text-[9px] font-bold text-text-secondary uppercase tracking-wider">Beğeni</p>
+                </div>
+                <div className="bg-background-light dark:bg-background-dark rounded-lg p-2 xl:p-2.5 2xl:p-3 text-center">
+                  <span className="material-symbols-outlined text-primary text-sm xl:text-base 2xl:text-xl block mb-0.5">groups</span>
+                  <p className="text-base xl:text-lg 2xl:text-2xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
+                  <p className="text-[7px] xl:text-[8px] 2xl:text-[9px] font-bold text-text-secondary uppercase tracking-wider">Takipçi</p>
+                </div>
+              </div>
+
+              <button onClick={() => navigate('/settings')} className="w-full h-9 xl:h-10 2xl:h-14 bg-stone-100 dark:bg-white/5 text-stone-600 rounded-lg xl:rounded-xl 2xl:rounded-2xl font-black text-[9px] xl:text-[10px] 2xl:text-xs uppercase tracking-widest flex items-center justify-center gap-1 xl:gap-1.5 2xl:gap-3">
                 <span className="material-symbols-outlined">settings_suggest</span>
                 AYARLAR
               </button>
@@ -49,7 +69,7 @@ const Profile: React.FC = () => {
           {/* Main Content */}
           <div className="flex-1">
             {/* Mobile Profile Header (Stacked) */}
-            <div className="lg:hidden flex flex-col items-center px-6 pt-6 pb-10">
+            <div className="lg:hidden flex flex-col items-center px-6 pt-6 pb-6">
               <div className="relative mb-6">
                 <div className="size-32 rounded-full border-4 border-white shadow-xl overflow-hidden ring-1 ring-black/5">
                   <img src={MOCK_USER.avatar} alt={MOCK_USER.name} className="w-full h-full object-cover" />
@@ -63,26 +83,24 @@ const Profile: React.FC = () => {
               </div>
               <h1 className="text-2xl font-black tracking-tighter mb-1 text-center">{MOCK_USER.name}</h1>
               <p className="text-sm font-bold text-text-secondary mb-4">@{MOCK_USER.username}</p>
-              <p className="text-sm leading-relaxed opacity-90 max-w-xs text-center italic">"{MOCK_USER.bio}"</p>
-            </div>
+              <p className="text-sm leading-relaxed opacity-90 max-w-xs text-center italic mb-6">"{MOCK_USER.bio}"</p>
 
-            {/* Stats Grid */}
-            <div className="px-6 md:px-0 py-6 md:py-6 lg:pb-8 lg:short:pb-4">
-              <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-5 lg:short:gap-4">
-                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">library_books</span>
-                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
-                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">SÖZLÜK</p>
+              {/* Mobile Stats - Compact Row */}
+              <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
+                <div className="bg-white dark:bg-surface-dark rounded-xl p-3 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-lg block mb-1">library_books</span>
+                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
+                  <p className="text-[8px] font-bold text-text-secondary uppercase tracking-wider">Sözlük</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">thumb_up</span>
-                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
-                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">Beğeni</p>
+                <div className="bg-white dark:bg-surface-dark rounded-xl p-3 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-lg block mb-1">thumb_up</span>
+                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
+                  <p className="text-[8px] font-bold text-text-secondary uppercase tracking-wider">Beğeni</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">groups</span>
-                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
-                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">TAKİPÇİ</p>
+                <div className="bg-white dark:bg-surface-dark rounded-xl p-3 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-lg block mb-1">groups</span>
+                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
+                  <p className="text-[8px] font-bold text-text-secondary uppercase tracking-wider">Takipçi</p>
                 </div>
               </div>
             </div>
