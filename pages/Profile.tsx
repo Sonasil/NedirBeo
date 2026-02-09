@@ -67,41 +67,41 @@ const Profile: React.FC = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="px-6 md:px-0 py-6 md:py-8 lg:pb-12 lg:short:pb-6">
-              <div className="grid grid-cols-3 gap-3 md:gap-6 lg:gap-10 lg:short:gap-5">
-                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">library_books</span>
-                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
-                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">SÖZLÜK</p>
+            <div className="px-6 md:px-0 py-6 md:py-6 lg:pb-8 lg:short:pb-4">
+              <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-5 lg:short:gap-4">
+                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">library_books</span>
+                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
+                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">SÖZLÜK</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">thumb_up</span>
-                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
-                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">Beğeni</p>
+                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">thumb_up</span>
+                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
+                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">Beğeni</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">groups</span>
-                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
-                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">TAKİPÇİ</p>
+                <div className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl p-3 md:p-5 lg:p-6 lg:short:p-4 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-xl md:text-2xl lg:text-3xl lg:short:text-2xl mb-1 md:mb-2 lg:mb-2 lg:short:mb-1">groups</span>
+                  <p className="text-lg md:text-2xl lg:text-3xl lg:short:text-2xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
+                  <p className="text-[8px] md:text-[9px] lg:text-[10px] lg:short:text-[9px] font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-1.5 lg:short:mt-1">TAKİPÇİ</p>
                 </div>
               </div>
             </div>
 
             {/* Tabs */}
-            <div className="sticky lg:relative top-20 lg:top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10 py-4 md:py-5 lg:pt-0 lg:pb-8 lg:short:pb-5 px-6 md:px-0">
-              <div className="flex p-1.5 rounded-2xl bg-white dark:bg-surface-dark border border-black/5 max-w-sm shadow-sm mx-auto lg:mx-0">
-                <button className="flex-1 py-2.5 rounded-xl bg-primary text-white text-[10px] lg:text-sm font-black uppercase tracking-widest">Sözlerim</button>
-                <button className="flex-1 py-2.5 rounded-xl text-text-secondary text-[10px] lg:text-sm font-black uppercase tracking-widest">Kaydedilenler</button>
+            <div className="sticky lg:relative top-20 lg:top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10 py-3 md:py-4 lg:pt-0 lg:pb-6 lg:short:pb-4 px-6 md:px-0">
+              <div className="flex p-1 rounded-xl bg-white dark:bg-surface-dark border border-black/5 max-w-sm shadow-sm mx-auto lg:mx-0">
+                <button className="flex-1 py-2 rounded-lg bg-primary text-white text-[9px] lg:text-xs font-black uppercase tracking-widest">Sözlerim</button>
+                <button className="flex-1 py-2 rounded-lg text-text-secondary text-[9px] lg:text-xs font-black uppercase tracking-widest">Kaydedilenler</button>
               </div>
             </div>
 
             {/* Content Feed */}
-            <div className="px-6 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 lg:short:gap-5 pb-20 lg:short:pb-10">
+            <div className="px-6 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6 lg:short:gap-4 pb-20 lg:short:pb-10">
               {MOCK_WORDS.map((word, idx) => (
                 <div
                   key={`${word.id}-${idx}`}
                   onClick={() => navigate(`/word/${word.id}`)}
-                  className="bg-white dark:bg-surface-dark rounded-[2rem] md:rounded-[3rem] lg:rounded-[3.5rem] p-6 md:p-8 lg:p-12 shadow-sm border border-black/5 flex justify-between items-start cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
+                  className="bg-white dark:bg-surface-dark rounded-2xl md:rounded-3xl lg:rounded-[2.5rem] p-5 md:p-6 lg:p-8 shadow-sm border border-black/5 flex justify-between items-start cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
                 >
                   <div className="flex-1 relative z-10">
                     <div className="flex items-center gap-2 mb-2">
