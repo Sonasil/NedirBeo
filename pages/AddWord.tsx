@@ -19,7 +19,7 @@ const AddWord: React.FC<Props> = ({ onBack, onSave }) => {
       </header>
 
       {/* Scrollable Content Area */}
-      <div className="flex-1 p-5 lg:p-8 space-y-6 lg:space-y-8 overflow-y-auto no-scrollbar">
+      <div className="flex-1 p-5 lg:p-8 lg:short:p-6 space-y-6 lg:space-y-8 lg:short:space-y-6 overflow-y-auto no-scrollbar">
         {/* Info Box */}
         <div className="bg-secondary/10 p-4 lg:p-6 rounded-2xl flex items-center gap-4 border border-secondary/20">
           <span className="material-symbols-outlined text-secondary text-2xl shrink-0">info</span>
@@ -32,9 +32,9 @@ const AddWord: React.FC<Props> = ({ onBack, onSave }) => {
         <div className="space-y-6">
           <div className="space-y-1.5">
             <label className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-text-muted ml-1">Kelime / Deyim</label>
-            <input 
-              type="text" 
-              placeholder="Örn: Gancelli" 
+            <input
+              type="text"
+              placeholder="Örn: Gancelli"
               className="w-full bg-white dark:bg-surface-dark border-none rounded-2xl py-4 px-5 text-lg lg:text-xl font-bold shadow-sm focus:ring-4 focus:ring-primary/20 placeholder-text-muted/40 transition-all"
             />
           </div>
@@ -42,17 +42,17 @@ const AddWord: React.FC<Props> = ({ onBack, onSave }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-text-muted ml-1">Okunuş</label>
-              <input 
-                type="text" 
-                placeholder="/gan-cel-li/" 
+              <input
+                type="text"
+                placeholder="/gan-cel-li/"
                 className="w-full bg-white dark:bg-surface-dark border-none rounded-xl py-3.5 lg:py-4 px-5 text-sm font-medium shadow-sm focus:ring-4 focus:ring-primary/20"
               />
             </div>
             <div className="space-y-1.5">
               <label className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-text-muted ml-1">Türkçe Karşılığı</label>
-              <input 
-                type="text" 
-                placeholder="Bahçe Kapısı" 
+              <input
+                type="text"
+                placeholder="Bahçe Kapısı"
                 className="w-full bg-white dark:bg-surface-dark border-none rounded-xl py-3.5 lg:py-4 px-5 text-sm font-semibold shadow-sm focus:ring-4 focus:ring-primary/20"
               />
             </div>
@@ -60,9 +60,9 @@ const AddWord: React.FC<Props> = ({ onBack, onSave }) => {
 
           <div className="space-y-1.5">
             <label className="text-[10px] lg:text-xs font-black uppercase tracking-widest text-text-muted ml-1">Anlamı</label>
-            <textarea 
+            <textarea
               rows={4}
-              placeholder="Kelimenin kökeni veya tam olarak ne anlama geldiğini açıklayın..." 
+              placeholder="Kelimenin kökeni veya tam olarak ne anlama geldiğini açıklayın..."
               className="w-full bg-white dark:bg-surface-dark border-none rounded-2xl py-4 px-5 text-sm leading-relaxed shadow-sm focus:ring-4 focus:ring-primary/20 placeholder-text-muted/40 resize-none"
             />
           </div>
@@ -85,7 +85,7 @@ const AddWord: React.FC<Props> = ({ onBack, onSave }) => {
 
       {/* Action Footer - Fixed at bottom */}
       <footer className="p-5 lg:p-8 bg-white/50 dark:bg-surface-dark/50 backdrop-blur-md border-t border-gray-100 dark:border-white/5 shrink-0">
-        <button 
+        <button
           onClick={onSave}
           className="w-full py-4 lg:py-6 bg-primary text-white rounded-2xl font-black text-sm lg:text-base shadow-xl shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
         >

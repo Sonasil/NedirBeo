@@ -19,9 +19,9 @@ const Profile: React.FC = () => {
         </button>
       </div>
 
-      <main className="max-w-[1440px] mx-auto lg:px-12 lg:py-16">
+      <main className="max-w-[1440px] mx-auto md:px-6 lg:px-12 md:py-8 lg:py-16 lg:short:py-8">
         <div className="lg:flex lg:gap-16">
-          
+
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block w-96 shrink-0 sticky top-28 h-fit space-y-8">
             <div className="bg-white dark:bg-surface-dark rounded-[3.5rem] p-12 border border-black/5 shadow-2xl">
@@ -29,7 +29,7 @@ const Profile: React.FC = () => {
                 <div className="size-56 rounded-[2.5rem] overflow-hidden border-8 border-background-light shadow-2xl rotate-2">
                   <img src={MOCK_USER.avatar} alt={MOCK_USER.name} className="w-full h-full object-cover" />
                 </div>
-                <button 
+                <button
                   onClick={() => navigate('/edit-profile')}
                   className="absolute -bottom-4 -right-4 size-16 rounded-[1.5rem] bg-primary text-white border-8 border-white dark:border-surface-dark flex items-center justify-center shadow-2xl"
                 >
@@ -54,7 +54,7 @@ const Profile: React.FC = () => {
                 <div className="size-32 rounded-full border-4 border-white shadow-xl overflow-hidden ring-1 ring-black/5">
                   <img src={MOCK_USER.avatar} alt={MOCK_USER.name} className="w-full h-full object-cover" />
                 </div>
-                <button 
+                <button
                   onClick={() => navigate('/edit-profile')}
                   className="absolute bottom-1 right-1 size-10 rounded-full bg-primary text-white border-4 border-white flex items-center justify-center shadow-lg"
                 >
@@ -67,28 +67,28 @@ const Profile: React.FC = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="px-6 lg:px-0 py-6 lg:pb-12">
-              <div className="grid grid-cols-3 gap-3 lg:gap-10">
-                <div className="bg-white dark:bg-surface-dark rounded-3xl lg:rounded-[2.5rem] p-4 lg:p-12 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl lg:text-5xl mb-1 lg:mb-4">library_books</span>
-                  <p className="text-xl lg:text-6xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
-                  <p className="text-[8px] lg:text-sm font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2">SÖZLÜK</p>
+            <div className="px-6 md:px-0 py-6 md:py-8 lg:pb-12 lg:short:pb-6">
+              <div className="grid grid-cols-3 gap-3 md:gap-6 lg:gap-10 lg:short:gap-5">
+                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">library_books</span>
+                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
+                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">SÖZLÜK</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-3xl lg:rounded-[2.5rem] p-4 lg:p-12 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl lg:text-5xl mb-1 lg:mb-4">thumb_up</span>
-                  <p className="text-xl lg:text-6xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
-                  <p className="text-[8px] lg:text-sm font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2">Beğeni</p>
+                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">thumb_up</span>
+                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
+                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">Beğeni</p>
                 </div>
-                <div className="bg-white dark:bg-surface-dark rounded-3xl lg:rounded-[2.5rem] p-4 lg:p-12 text-center shadow-sm border border-black/5">
-                  <span className="material-symbols-outlined text-primary text-2xl lg:text-5xl mb-1 lg:mb-4">groups</span>
-                  <p className="text-xl lg:text-6xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
-                  <p className="text-[8px] lg:text-sm font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2">TAKİPÇİ</p>
+                <div className="bg-white dark:bg-surface-dark rounded-3xl md:rounded-[2.5rem] p-4 md:p-8 lg:p-12 lg:short:p-6 text-center shadow-sm border border-black/5">
+                  <span className="material-symbols-outlined text-primary text-2xl md:text-4xl lg:text-5xl lg:short:text-3xl mb-1 md:mb-3 lg:mb-4 lg:short:mb-2">groups</span>
+                  <p className="text-xl md:text-4xl lg:text-6xl lg:short:text-4xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
+                  <p className="text-[8px] md:text-xs lg:text-sm lg:short:text-xs font-black text-text-secondary uppercase tracking-widest mt-1 lg:mt-2 lg:short:mt-1">TAKİPÇİ</p>
                 </div>
               </div>
             </div>
 
             {/* Tabs */}
-            <div className="sticky lg:relative top-20 lg:top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10 py-4 lg:pt-0 lg:pb-8 px-6 lg:px-0">
+            <div className="sticky lg:relative top-20 lg:top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10 py-4 md:py-5 lg:pt-0 lg:pb-8 lg:short:pb-5 px-6 md:px-0">
               <div className="flex p-1.5 rounded-2xl bg-white dark:bg-surface-dark border border-black/5 max-w-sm shadow-sm mx-auto lg:mx-0">
                 <button className="flex-1 py-2.5 rounded-xl bg-primary text-white text-[10px] lg:text-sm font-black uppercase tracking-widest">Sözlerim</button>
                 <button className="flex-1 py-2.5 rounded-xl text-text-secondary text-[10px] lg:text-sm font-black uppercase tracking-widest">Kaydedilenler</button>
@@ -96,20 +96,20 @@ const Profile: React.FC = () => {
             </div>
 
             {/* Content Feed */}
-            <div className="px-6 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 pb-20">
+            <div className="px-6 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 lg:short:gap-5 pb-20 lg:short:pb-10">
               {MOCK_WORDS.map((word, idx) => (
-                <div 
-                  key={`${word.id}-${idx}`} 
-                  onClick={() => navigate(`/word/${word.id}`)} 
-                  className="bg-white dark:bg-surface-dark rounded-[2rem] lg:rounded-[3.5rem] p-6 lg:p-12 shadow-sm border border-black/5 flex justify-between items-start cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
+                <div
+                  key={`${word.id}-${idx}`}
+                  onClick={() => navigate(`/word/${word.id}`)}
+                  className="bg-white dark:bg-surface-dark rounded-[2rem] md:rounded-[3rem] lg:rounded-[3.5rem] p-6 md:p-8 lg:p-12 shadow-sm border border-black/5 flex justify-between items-start cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
                 >
                   <div className="flex-1 relative z-10">
                     <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-black text-xl lg:text-4xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
-                      <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[8px] lg:text-[10px] font-black uppercase tracking-widest">POPÜLER</span>
+                      <h3 className="font-black text-xl md:text-3xl lg:text-4xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
+                      <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[8px] md:text-[10px] font-black uppercase tracking-widest">POPÜLER</span>
                     </div>
-                    <p className="text-sm lg:text-lg text-text-secondary leading-relaxed line-clamp-2 lg:line-clamp-3 italic opacity-80 mb-6 font-medium">"{word.definition}"</p>
-                    <div className="flex items-center gap-4 lg:gap-8 text-[9px] lg:text-[11px] text-text-muted font-black uppercase tracking-widest opacity-60">
+                    <p className="text-sm md:text-base lg:text-lg text-text-secondary leading-relaxed line-clamp-2 lg:line-clamp-3 italic opacity-80 mb-6 font-medium">"{word.definition}"</p>
+                    <div className="flex items-center gap-4 md:gap-6 lg:gap-8 text-[9px] md:text-[10px] lg:text-[11px] text-text-muted font-black uppercase tracking-widest opacity-60">
                       <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm">calendar_today</span> {word.createdAt}</span>
                     </div>
                   </div>

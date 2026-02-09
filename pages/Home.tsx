@@ -8,8 +8,8 @@ const Home: React.FC = () => {
   const [search, setSearch] = useState('');
   const featuredWord = MOCK_WORDS[1]; // Hellim
 
-  const filteredWords = MOCK_WORDS.filter(w => 
-    w.term.toLowerCase().includes(search.toLowerCase()) || 
+  const filteredWords = MOCK_WORDS.filter(w =>
+    w.term.toLowerCase().includes(search.toLowerCase()) ||
     w.turkishEquivalent.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -26,9 +26,9 @@ const Home: React.FC = () => {
         </button>
       </header>
 
-      <div className="max-w-[1440px] mx-auto lg:px-12 lg:py-8">
+      <div className="max-w-[1440px] mx-auto md:px-6 lg:px-12 md:py-4 lg:py-8 lg:short:py-5">
         <div className="lg:flex lg:gap-12">
-          
+
           {/* Desktop Sidebar - Left */}
           <aside className="hidden lg:block w-72 shrink-0 space-y-8 sticky top-28 h-fit">
             <div className="bg-white dark:bg-surface-dark rounded-[2.5rem] p-8 border border-black/5 shadow-sm">
@@ -54,13 +54,13 @@ const Home: React.FC = () => {
           {/* Main Content Area */}
           <div className="flex-1">
             {/* Search Bar */}
-            <div className="px-6 py-6 lg:px-0 lg:pt-0 lg:pb-10">
+            <div className="px-6 py-6 md:px-0 md:pt-0 md:pb-8 lg:pb-10">
               <div className="relative max-w-2xl">
                 <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary text-2xl">search</span>
-                <input 
+                <input
                   type="text"
                   placeholder="Kıbrıs'a dair bir şeyler ara..."
-                  className="w-full h-16 pl-14 pr-6 rounded-[1.5rem] border-none bg-orange-50 dark:bg-white/5 text-text-main dark:text-white placeholder-text-secondary focus:ring-4 focus:ring-primary/10 transition-all text-lg font-semibold shadow-inner"
+                  className="w-full h-14 md:h-16 pl-12 md:pl-14 pr-6 rounded-[1.5rem] border-none bg-orange-50 dark:bg-white/5 text-text-main dark:text-white placeholder-text-secondary focus:ring-4 focus:ring-primary/10 transition-all text-base md:text-lg font-semibold shadow-inner"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -69,27 +69,27 @@ const Home: React.FC = () => {
 
             {/* Featured Word - Optimized for Mobile Fit */}
             {!search && (
-              <div className="px-6 pb-8 lg:px-0">
-                <div 
+              <div className="px-6 pb-8 md:px-0">
+                <div
                   onClick={() => navigate(`/word/${featuredWord.id}`)}
-                  className="group relative h-[380px] lg:h-[450px] overflow-hidden rounded-[2.5rem] lg:rounded-[3rem] bg-stone-900 cursor-pointer shadow-2xl border border-black/5"
+                  className="group relative h-[380px] md:h-[420px] lg:h-[450px] lg:short:h-[380px] overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-stone-900 cursor-pointer shadow-2xl border border-black/5"
                 >
-                  <img 
-                    src={featuredWord.imageUrl} 
-                    alt={featuredWord.term} 
+                  <img
+                    src={featuredWord.imageUrl}
+                    alt={featuredWord.term}
                     className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                  
-                  <div className="absolute inset-0 p-6 lg:p-16 flex flex-col justify-end">
+
+                  <div className="absolute inset-0 p-6 md:p-10 lg:p-16 lg:short:p-12 flex flex-col justify-end">
                     <div className="flex items-end justify-between gap-4 lg:gap-12">
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-3 lg:mb-4">
                           <span className="px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-primary text-white text-[9px] lg:text-[10px] font-black uppercase tracking-wider lg:tracking-[0.3em] shadow-xl shadow-primary/20">GÜNÜN KELİMESİ</span>
                           <span className="text-white/40 text-[9px] lg:text-[10px] font-black uppercase tracking-widest">• 24 ARALIK</span>
                         </div>
-                        <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tighter mb-2 lg:mb-4 truncate">{featuredWord.term}</h2>
-                        <p className="text-white/90 text-sm lg:text-xl font-medium italic line-clamp-2 lg:line-clamp-3 max-w-3xl leading-relaxed">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter mb-2 md:mb-3 lg:mb-4 truncate">{featuredWord.term}</h2>
+                        <p className="text-white/90 text-sm md:text-base lg:text-xl font-medium italic line-clamp-2 md:line-clamp-3 max-w-3xl leading-relaxed">
                           "{featuredWord.definition}"
                         </p>
                       </div>
@@ -103,61 +103,61 @@ const Home: React.FC = () => {
             )}
 
             {/* Section Title */}
-            <div className="px-6 lg:px-0 mt-8 mb-6 flex items-center justify-between">
+            <div className="px-6 md:px-0 mt-8 mb-6 flex items-center justify-between">
               <h3 className="text-[12px] font-black uppercase tracking-[0.4em] text-text-muted flex items-center gap-3">
                 <span className="w-12 h-[2px] bg-primary/20"></span>
                 SON EKLEMLER VE AKIŞ
               </h3>
               <div className="hidden lg:flex items-center gap-2">
-                 <button className="size-8 rounded-lg bg-stone-100 dark:bg-white/5 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
-                   <span className="material-symbols-outlined text-xl">grid_view</span>
-                 </button>
-                 <button className="size-8 rounded-lg bg-white dark:bg-surface-dark border border-black/5 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
-                   <span className="material-symbols-outlined text-xl">list</span>
-                 </button>
+                <button className="size-8 rounded-lg bg-stone-100 dark:bg-white/5 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+                  <span className="material-symbols-outlined text-xl">grid_view</span>
+                </button>
+                <button className="size-8 rounded-lg bg-white dark:bg-surface-dark border border-black/5 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+                  <span className="material-symbols-outlined text-xl">list</span>
+                </button>
               </div>
             </div>
 
             {/* Feed List */}
-            <div className="px-6 lg:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="px-6 md:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 lg:short:gap-6">
               {filteredWords.map((word) => (
-                <article 
-                  key={word.id} 
+                <article
+                  key={word.id}
                   onClick={() => navigate(`/word/${word.id}`)}
-                  className="group p-8 bg-white dark:bg-surface-dark rounded-[3rem] border border-black/[0.04] shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between h-full"
+                  className="group p-8 lg:short:p-6 bg-white dark:bg-surface-dark rounded-[3rem] border border-black/[0.04] shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between h-full"
                 >
                   <div className="relative z-10">
                     <div className="flex justify-between items-start mb-6">
                       <div>
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-3xl font-black tracking-tight group-hover:text-primary transition-colors">{word.term}</h3>
-                          <span className="text-[10px] font-black text-text-muted uppercase tracking-widest bg-stone-100 dark:bg-white/5 px-2.5 py-1 rounded-lg">{word.dialect.split(' ')[0]}</span>
+                          <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-primary transition-colors">{word.term}</h3>
+                          <span className="text-[10px] md:text-[11px] font-black text-text-muted uppercase tracking-widest bg-stone-100 dark:bg-white/5 px-2.5 py-1 rounded-lg">{word.dialect.split(' ')[0]}</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <span className="w-6 h-[2px] bg-primary/40 rounded-full"></span>
-                          <p className="text-xs text-primary font-black uppercase tracking-widest">{word.turkishEquivalent}</p>
+                          <p className="text-xs md:text-sm text-primary font-black uppercase tracking-widest">{word.turkishEquivalent}</p>
                         </div>
                       </div>
                     </div>
-                    <p className="text-text-secondary text-base leading-relaxed italic line-clamp-4 mb-8 opacity-80 font-medium">
+                    <p className="text-text-secondary text-sm md:text-base leading-relaxed italic line-clamp-4 mb-8 opacity-80 font-medium">
                       "{word.definition}"
                     </p>
                   </div>
 
                   <div className="relative z-10 pt-6 border-t border-black/[0.03] flex items-center justify-between mt-auto">
                     <div className="flex items-center gap-6">
-                      <button className="flex items-center gap-2 text-[11px] font-black text-stone-400 hover:text-primary transition-colors">
+                      <button className="flex items-center gap-2 text-[11px] md:text-xs font-black text-stone-400 hover:text-primary transition-colors">
                         <span className="material-symbols-outlined text-xl">favorite</span>
                         {word.likes}
                       </button>
-                      <button className="flex items-center gap-2 text-[11px] font-black text-stone-400 hover:text-primary transition-colors">
+                      <button className="flex items-center gap-2 text-[11px] md:text-xs font-black text-stone-400 hover:text-primary transition-colors">
                         <span className="material-symbols-outlined text-xl">forum</span>
                         {word.commentsCount}
                       </button>
                     </div>
-                    <span className="text-[11px] font-bold text-stone-400 uppercase tracking-widest bg-stone-50 dark:bg-white/5 px-3 py-1 rounded-full">@{word.author}</span>
+                    <span className="text-[11px] md:text-xs font-bold text-stone-400 uppercase tracking-widest bg-stone-50 dark:bg-white/5 px-3 py-1 rounded-full">@{word.author}</span>
                   </div>
-                  
+
                   {/* Large Stylized Background Initial */}
                   <span className="absolute -right-6 -top-6 text-[11rem] font-black text-black/[0.012] dark:text-white/[0.008] pointer-events-none select-none group-hover:scale-125 group-hover:text-primary/[0.02] transition-all duration-1000">
                     {word.term.charAt(0)}

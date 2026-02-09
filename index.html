@@ -12,6 +12,10 @@
         darkMode: "class",
         theme: {
           extend: {
+            screens: {
+              'short': {'raw': '(max-height: 900px)'},
+              'tall': {'raw': '(min-height: 901px)'}
+            },
             colors: {
               "primary": "#f47b25",
               "primary-dark": "#d96615",
