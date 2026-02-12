@@ -6,12 +6,19 @@ import { MOCK_WORDS } from '../constants';
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
+  const [visibleCount, setVisibleCount] = useState(6);
   const featuredWord = MOCK_WORDS[1]; // Hellim
 
   const filteredWords = MOCK_WORDS.filter(w =>
     w.term.toLowerCase().includes(search.toLowerCase()) ||
     w.turkishEquivalent.toLowerCase().includes(search.toLowerCase())
   );
+
+  const displayedWords = filteredWords.slice(0, visibleCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 6);
+  };
 
   return (
     <div className="pb-32 lg:pb-20">
@@ -120,7 +127,7 @@ const Home: React.FC = () => {
 
             {/* Feed List */}
             <div className="px-6 md:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 lg:short:gap-6">
-              {filteredWords.map((word) => (
+              {displayedWords.map((word) => (
                 <article
                   key={word.id}
                   onClick={() => navigate(`/word/${word.id}`)}
@@ -167,11 +174,17 @@ const Home: React.FC = () => {
             </div>
 
             {/* Load More Button */}
-            <div className="mt-16 flex justify-center">
-              <button className="h-14 px-12 rounded-2xl bg-white dark:bg-surface-dark border-2 border-primary/20 text-primary font-black text-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-white hover:border-primary transition-all shadow-xl shadow-primary/5 active:scale-95">
-                DAHA FAZLA KEŞFET
-              </button>
-            </div>
+            {visibleCount < filteredWords.length && (
+              <div className="mt-16 flex justify-center">
+                <button
+                  onClick={handleLoadMore}
+                  className="h-14 px-12 rounded-2xl bg-white dark:bg-surface-dark border-2 border-primary/20 text-primary font-black text-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-white hover:border-primary transition-all shadow-xl shadow-primary/5 active:scale-95 flex flex-col items-center justify-center gap-1"
+                >
+                  <span>DAHA FAZLA KEŞFET</span>
+                  <span className="text-[9px] opacity-70 normal-case tracking-normal">({filteredWords.length - visibleCount} kelime daha)</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

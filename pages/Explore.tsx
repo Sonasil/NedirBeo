@@ -10,6 +10,13 @@ interface ExploreProps {
 const Explore: React.FC<ExploreProps> = ({ onAddClick }) => {
   const navigate = useNavigate();
   const [isRolling, setIsRolling] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(8);
+  const allWords = MOCK_WORDS.concat(MOCK_WORDS); // Keeping existing data source
+  const displayedWords = allWords.slice(0, visibleCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 8);
+  };
 
   const handleRandomDiscovery = () => {
     setIsRolling(true);
@@ -86,7 +93,7 @@ const Explore: React.FC<ExploreProps> = ({ onAddClick }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-            {MOCK_WORDS.concat(MOCK_WORDS).map((word, idx) => (
+            {displayedWords.map((word, idx) => (
               <div
                 key={`${word.id}-${idx}`}
                 onClick={() => navigate(`/word/${word.id}`)}
@@ -127,6 +134,26 @@ const Explore: React.FC<ExploreProps> = ({ onAddClick }) => {
               </div>
             ))}
           </div>
+
+          {/* Load More Button */}
+          {visibleCount < allWords.length && (
+            <div className="flex justify-center pt-8">
+              <button
+                onClick={handleLoadMore}
+                className="group relative px-8 py-4 bg-white dark:bg-surface-dark border border-black/5 rounded-2xl flex items-center gap-3 hover:bg-stone-50 dark:hover:bg-white/5 transition-all shadow-sm hover:shadow-lg active:scale-95"
+              >
+                <div className="size-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-primary group-hover:text-white transition-colors">add</span>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-black text-stone-900 dark:text-white uppercase tracking-widest">Daha Fazla Göster</p>
+                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider group-hover:text-primary transition-colors">
+                    {allWords.length - visibleCount} kelime daha var
+                  </p>
+                </div>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
