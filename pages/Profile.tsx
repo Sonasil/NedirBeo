@@ -189,19 +189,19 @@ const Profile: React.FC = () => {
               </div>
 
               {/* Responsive Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-3 gap-4 lg:gap-4 min-[1800px]:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-3 gap-4 lg:gap-6 min-[1800px]:gap-10">
                 {displayedWords.map((word, idx) => (
                   <div
                     key={`${word.id}-${idx}`}
                     onClick={() => navigate(`/word/${word.id}`)}
-                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-4 min-[1800px]:p-6 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
+                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-6 min-[1800px]:p-8 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
                   >
                     <div className="flex-1 relative z-10">
-                      <div className="flex items-center gap-2 mb-2 lg:mb-1 min-[1800px]:mb-2">
-                        <h3 className="font-black text-lg lg:text-lg min-[1800px]:text-xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
+                      <div className="flex items-center gap-2 mb-2 lg:mb-2 min-[1800px]:mb-3">
+                        <h3 className="font-black text-lg lg:text-xl min-[1800px]:text-2xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
                         <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest">POPÜLER</span>
                       </div>
-                      <p className="text-sm text-text-secondary leading-relaxed line-clamp-2 lg:line-clamp-1 min-[1800px]:line-clamp-2 italic opacity-80 mb-5 lg:mb-2 min-[1800px]:mb-5 font-medium">"{word.definition}"</p>
+                      <p className="text-sm text-text-secondary leading-relaxed line-clamp-2 lg:line-clamp-2 min-[1800px]:line-clamp-3 italic opacity-80 mb-5 lg:mb-4 min-[1800px]:mb-6 font-medium">"{word.definition}"</p>
                       <div className="flex items-center justify-between text-[10px] text-text-muted font-black uppercase tracking-widest opacity-60">
                         <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm">calendar_today</span> {word.createdAt}</span>
                         <span className="flex items-center gap-1.5">
