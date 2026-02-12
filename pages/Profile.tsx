@@ -6,7 +6,28 @@ import { MOCK_USER, MOCK_WORDS } from '../constants';
 const Profile: React.FC = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
-  const wordsPerPage = 6; // Changed back to 6 as requested
+  const [wordsPerPage, setWordsPerPage] = useState(6);
+
+  // Dynamic pagination based on screen height/width
+  React.useEffect(() => {
+    const handleResize = () => {
+      // Increased threshold to 1950px to treat 1920x1080 screens as "Standard" (6 items)
+      // Only 2K (2048px+) or 4K screens will see 9 items.
+      // Threshold set to 1800px to distinguish 1920px monitors from 1536px laptops
+      if (window.innerWidth >= 1800) {
+        setWordsPerPage(9); // 3x3 grid for huge monitors
+      } else if (window.innerWidth >= 1024) {
+        setWordsPerPage(6); // 2x3 (or 3x2) grid for laptops/1080p
+      } else {
+        setWordsPerPage(6); // Mobile/Tablet
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const totalPages = Math.ceil(MOCK_WORDS.length / wordsPerPage);
 
   const goToPreviousPage = () => {
@@ -17,13 +38,18 @@ const Profile: React.FC = () => {
     setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1));
   };
 
+  // Reset page when wordsPerPage changes to avoid empty pages
+  React.useEffect(() => {
+    setCurrentPage(0);
+  }, [wordsPerPage]);
+
   const displayedWords = MOCK_WORDS.slice(
     currentPage * wordsPerPage,
     (currentPage + 1) * wordsPerPage
   );
 
   return (
-    <div className="pb-32 lg:pb-20 min-h-screen animate-in fade-in duration-700 bg-background-light dark:bg-background-dark">
+    <div className="pb-32 lg:pb-2 2xl:pb-20 min-h-screen animate-in fade-in duration-700 bg-background-light dark:bg-background-dark">
       {/* Mobile Header */}
       <div className="lg:hidden flex items-center justify-between p-6 sticky top-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-20">
         <button onClick={() => navigate(-1)} className="size-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-all">
@@ -35,14 +61,14 @@ const Profile: React.FC = () => {
         </button>
       </div>
 
-      <main className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-4 lg:py-8">
-        <div className="lg:grid lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-8">
+      <main className="max-w-[93%] mx-auto px-4 md:px-6 lg:px-8 py-4 lg:py-6 min-[1800px]:py-24">
+        <div className="lg:grid lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-8 min-[1800px]:gap-16">
 
           {/* Desktop Sidebar */}
-          <aside className="hidden lg:block sticky top-28 h-fit space-y-6 min-w-0">
-            <div className="bg-white dark:bg-surface-dark rounded-3xl p-8 border border-black/5 shadow-xl">
-              <div className="relative mb-6">
-                <div className="size-40 rounded-2xl overflow-hidden border-4 border-background-light shadow-2xl rotate-2 mx-auto">
+          <aside className="hidden lg:block sticky top-20 h-fit min-w-0 space-y-6 lg:space-y-6 min-[1800px]:space-y-12">
+            <div className="bg-white dark:bg-surface-dark rounded-3xl lg:p-8 min-[1800px]:p-12 border border-black/5 shadow-xl">
+              <div className="relative mb-4 lg:mb-6 min-[1800px]:mb-12">
+                <div className="size-40 lg:size-44 min-[1800px]:size-64 rounded-2xl overflow-hidden border-4 border-background-light shadow-2xl rotate-2 mx-auto">
                   <img src={MOCK_USER.avatar} alt={MOCK_USER.name} className="w-full h-full object-cover" />
                 </div>
                 <button
@@ -54,33 +80,35 @@ const Profile: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <h1 className="text-2xl font-black tracking-tighter mb-1">{MOCK_USER.name}</h1>
-                <p className="text-sm font-bold text-text-secondary mb-4">@{MOCK_USER.username}</p>
-                <p className="text-sm leading-relaxed opacity-90 italic mb-6 text-text-muted">"{MOCK_USER.bio}"</p>
+                <h1 className="text-2xl lg:text-2xl min-[1800px]:text-4xl font-black tracking-tighter mb-1 lg:mb-2 min-[1800px]:mb-4">{MOCK_USER.name}</h1>
+                <p className="text-sm font-bold text-text-secondary mb-2 lg:mb-3 min-[1800px]:mb-8">@{MOCK_USER.username}</p>
+                <p className="text-sm leading-relaxed opacity-90 italic mb-4 lg:mb-6 min-[1800px]:mb-12 text-text-muted">"{MOCK_USER.bio}"</p>
               </div>
 
               {/* Stats Grid - Desktop */}
-              <div className="grid grid-cols-3 gap-2 mb-6">
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 text-center transition-colors hover:bg-primary/5">
+              <div className="grid grid-cols-3 gap-2 mb-4 lg:mb-6 min-[1800px]:mb-12">
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-4 min-[1800px]:p-6 text-center transition-colors hover:bg-primary/5">
                   <span className="material-symbols-outlined text-primary text-xl block mb-1">library_books</span>
                   <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
                   <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Sözlük</p>
                 </div>
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 text-center transition-colors hover:bg-primary/5">
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 2xl:p-3 text-center transition-colors hover:bg-primary/5">
                   <span className="material-symbols-outlined text-primary text-xl block mb-1">thumb_up</span>
                   <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
                   <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Beğeni</p>
                 </div>
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 text-center transition-colors hover:bg-primary/5">
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 2xl:p-3 text-center transition-colors hover:bg-primary/5">
                   <span className="material-symbols-outlined text-primary text-xl block mb-1">groups</span>
                   <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
                   <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Takipçi</p>
                 </div>
               </div>
 
-              <button onClick={() => navigate('/settings')} className="w-full h-12 bg-stone-100 dark:bg-white/5 text-stone-600 dark:text-stone-300 rounded-xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors">
-                <span className="material-symbols-outlined text-lg">settings_suggest</span>
-                AYARLAR
+
+
+              <button onClick={() => navigate('/settings')} className="w-full h-14 lg:h-14 min-[1800px]:h-20 bg-stone-100 dark:bg-white/5 text-stone-600 dark:text-stone-300 rounded-xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors">
+                <span className="material-symbols-outlined text-lg min-[1800px]:text-2xl">settings_suggest</span>
+                <span className="min-[1800px]:text-base">AYARLAR</span>
               </button>
             </div>
           </aside>
@@ -133,9 +161,9 @@ const Profile: React.FC = () => {
             </div>
 
             {/* Content Area */}
-            <div className="px-6 md:px-0 pb-12">
+            <div className="px-6 md:px-0 pb-12 lg:pb-12 min-[1800px]:pb-12">
               {/* Navigation Header */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-6 lg:mb-6 min-[1800px]:mb-6">
                 <h3 className="text-lg lg:text-xl font-black tracking-tight">Tüm Sözlerim</h3>
                 <div className="flex items-center gap-4">
                   <span className="text-xs text-text-secondary font-bold hidden sm:inline-block">
@@ -161,19 +189,19 @@ const Profile: React.FC = () => {
               </div>
 
               {/* Responsive Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-3 gap-4 lg:gap-4 min-[1800px]:gap-8">
                 {displayedWords.map((word, idx) => (
                   <div
                     key={`${word.id}-${idx}`}
                     onClick={() => navigate(`/word/${word.id}`)}
-                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-6 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
+                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-4 min-[1800px]:p-6 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
                   >
                     <div className="flex-1 relative z-10">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-black text-lg lg:text-xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
+                      <div className="flex items-center gap-2 mb-2 lg:mb-1 min-[1800px]:mb-2">
+                        <h3 className="font-black text-lg lg:text-lg min-[1800px]:text-xl tracking-tighter group-hover:text-primary transition-colors leading-none">{word.term}</h3>
                         <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest">POPÜLER</span>
                       </div>
-                      <p className="text-sm text-text-secondary leading-relaxed line-clamp-2 italic opacity-80 mb-5 font-medium">"{word.definition}"</p>
+                      <p className="text-sm text-text-secondary leading-relaxed line-clamp-2 lg:line-clamp-1 min-[1800px]:line-clamp-2 italic opacity-80 mb-5 lg:mb-2 min-[1800px]:mb-5 font-medium">"{word.definition}"</p>
                       <div className="flex items-center justify-between text-[10px] text-text-muted font-black uppercase tracking-widest opacity-60">
                         <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm">calendar_today</span> {word.createdAt}</span>
                         <span className="flex items-center gap-1.5">
@@ -187,8 +215,8 @@ const Profile: React.FC = () => {
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   );
 };
 
