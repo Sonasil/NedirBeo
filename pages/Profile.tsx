@@ -15,7 +15,7 @@ const Profile: React.FC = () => {
       // Only 2K (2048px+) or 4K screens will see 9 items.
       // Threshold set to 1800px to distinguish 1920px monitors from 1536px laptops
       if (window.innerWidth >= 1800) {
-        setWordsPerPage(9); // 3x3 grid for huge monitors
+        setWordsPerPage(6); // 3x2 grid for monitor
       } else if (window.innerWidth >= 1024) {
         setWordsPerPage(6); // 2x3 (or 3x2) grid for laptops/1080p
       } else {
@@ -61,52 +61,52 @@ const Profile: React.FC = () => {
         </button>
       </div>
 
-      <main className="max-w-[93%] mx-auto px-4 md:px-6 lg:px-8 py-4 lg:py-6 min-[1800px]:py-24">
-        <div className="lg:grid lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-8 min-[1800px]:gap-16">
+      <main className="max-w-[93%] mx-auto px-4 md:px-6 lg:px-8 py-4 lg:py-4 min-[1800px]:py-24 lg:h-[calc(100vh-80px)] lg:overflow-hidden">
+        <div className="lg:grid lg:grid-cols-[320px_minmax(0,1fr)] min-[1800px]:grid-cols-[440px_minmax(0,1fr)] lg:gap-6 min-[1800px]:gap-16 h-full">
 
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block sticky top-20 h-fit min-w-0 space-y-6 lg:space-y-6 min-[1800px]:space-y-12">
             <div className="bg-white dark:bg-surface-dark rounded-3xl lg:p-8 min-[1800px]:p-12 border border-black/5 shadow-xl">
-              <div className="relative mb-4 lg:mb-6 min-[1800px]:mb-12">
-                <div className="size-40 lg:size-44 min-[1800px]:size-64 rounded-2xl overflow-hidden border-4 border-background-light shadow-2xl rotate-2 mx-auto">
+              <div className="relative mb-4 lg:mb-2 min-[1800px]:mb-6">
+                <div className="size-40 lg:size-40 min-[1800px]:size-64 rounded-2xl overflow-hidden border-4 border-background-light shadow-2xl rotate-2 mx-auto">
                   <img src={MOCK_USER.avatar} alt={MOCK_USER.name} className="w-full h-full object-cover" />
                 </div>
                 <button
                   onClick={() => navigate('/edit-profile')}
-                  className="absolute bottom-0 right-8 size-10 rounded-xl bg-primary text-white border-4 border-white dark:border-surface-dark flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
+                  className="absolute bottom-0 right-8 lg:right-6 min-[1800px]:right-10 size-10 lg:size-10 min-[1800px]:size-14 rounded-xl bg-primary text-white border-4 border-white dark:border-surface-dark flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
                 >
-                  <span className="material-symbols-outlined text-sm font-black">edit</span>
+                  <span className="material-symbols-outlined text-sm font-black min-[1800px]:text-xl">edit</span>
                 </button>
               </div>
 
               <div className="text-center">
-                <h1 className="text-2xl lg:text-2xl min-[1800px]:text-4xl font-black tracking-tighter mb-1 lg:mb-2 min-[1800px]:mb-4">{MOCK_USER.name}</h1>
-                <p className="text-sm font-bold text-text-secondary mb-2 lg:mb-3 min-[1800px]:mb-8">@{MOCK_USER.username}</p>
-                <p className="text-sm leading-relaxed opacity-90 italic mb-4 lg:mb-6 min-[1800px]:mb-12 text-text-muted">"{MOCK_USER.bio}"</p>
+                <h1 className="text-2xl lg:text-xl min-[1800px]:text-4xl font-black tracking-tighter mb-1 lg:mb-1 min-[1800px]:mb-2">{MOCK_USER.name}</h1>
+                <p className="text-sm font-bold text-text-secondary mb-2 lg:mb-2 min-[1800px]:mb-6">@{MOCK_USER.username}</p>
+                <p className="text-sm leading-relaxed opacity-90 italic mb-4 lg:mb-4 min-[1800px]:mb-12 text-text-muted px-2 lg:px-0 lg:text-xs min-[1800px]:text-base line-clamp-3 lg:line-clamp-3 min-[1800px]:line-clamp-4">"{MOCK_USER.bio}"</p>
               </div>
 
               {/* Stats Grid - Desktop */}
-              <div className="grid grid-cols-3 gap-2 mb-4 lg:mb-6 min-[1800px]:mb-12">
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-4 min-[1800px]:p-6 text-center transition-colors hover:bg-primary/5">
-                  <span className="material-symbols-outlined text-primary text-xl block mb-1">library_books</span>
-                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
-                  <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Sözlük</p>
+              <div className="grid grid-cols-3 gap-2 mb-4 lg:mb-4 min-[1800px]:mb-12">
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 min-[1800px]:p-5 text-center transition-colors hover:bg-primary/5">
+                  <span className="material-symbols-outlined text-primary text-xl min-[1800px]:text-3xl block mb-1">library_books</span>
+                  <p className="text-lg lg:text-lg min-[1800px]:text-2xl font-black tracking-tighter">{MOCK_USER.stats.wordsCount}</p>
+                  <p className="text-[10px] lg:text-[10px] min-[1800px]:text-xs font-bold text-text-secondary uppercase tracking-wider">Sözlük</p>
                 </div>
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 2xl:p-3 text-center transition-colors hover:bg-primary/5">
-                  <span className="material-symbols-outlined text-primary text-xl block mb-1">thumb_up</span>
-                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
-                  <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Beğeni</p>
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 min-[1800px]:p-5 text-center transition-colors hover:bg-primary/5">
+                  <span className="material-symbols-outlined text-primary text-xl min-[1800px]:text-3xl block mb-1">thumb_up</span>
+                  <p className="text-lg lg:text-lg min-[1800px]:text-2xl font-black tracking-tighter">{MOCK_USER.stats.votesCount}</p>
+                  <p className="text-[10px] lg:text-[10px] min-[1800px]:text-xs font-bold text-text-secondary uppercase tracking-wider">Beğeni</p>
                 </div>
-                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 2xl:p-3 text-center transition-colors hover:bg-primary/5">
-                  <span className="material-symbols-outlined text-primary text-xl block mb-1">groups</span>
-                  <p className="text-lg font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
-                  <p className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Takipçi</p>
+                <div className="bg-background-light dark:bg-background-dark rounded-xl p-3 lg:p-2 min-[1800px]:p-5 text-center transition-colors hover:bg-primary/5">
+                  <span className="material-symbols-outlined text-primary text-xl min-[1800px]:text-3xl block mb-1">groups</span>
+                  <p className="text-lg lg:text-lg min-[1800px]:text-2xl font-black tracking-tighter">{MOCK_USER.stats.followersCount}</p>
+                  <p className="text-[10px] lg:text-[10px] min-[1800px]:text-xs font-bold text-text-secondary uppercase tracking-wider">Takipçi</p>
                 </div>
               </div>
 
 
 
-              <button onClick={() => navigate('/settings')} className="w-full h-14 lg:h-14 min-[1800px]:h-20 bg-stone-100 dark:bg-white/5 text-stone-600 dark:text-stone-300 rounded-xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors">
+              <button onClick={() => navigate('/settings')} className="w-full h-14 lg:h-12 min-[1800px]:h-20 bg-stone-100 dark:bg-white/5 text-stone-600 dark:text-stone-300 rounded-xl font-black text-xs min-[1800px]:text-lg uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-stone-200 dark:hover:bg-white/10 transition-colors">
                 <span className="material-symbols-outlined text-lg min-[1800px]:text-2xl">settings_suggest</span>
                 <span className="min-[1800px]:text-base">AYARLAR</span>
               </button>
@@ -194,7 +194,7 @@ const Profile: React.FC = () => {
                   <div
                     key={`${word.id}-${idx}`}
                     onClick={() => navigate(`/word/${word.id}`)}
-                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-6 min-[1800px]:p-8 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
+                    className="bg-white dark:bg-surface-dark rounded-2xl lg:rounded-3xl p-5 lg:p-11 min-[1800px]:p-8 shadow-sm border border-black/5 cursor-pointer hover:border-primary/40 hover:shadow-xl transition-all group relative overflow-hidden"
                   >
                     <div className="flex-1 relative z-10">
                       <div className="flex items-center gap-2 mb-2 lg:mb-2 min-[1800px]:mb-3">
